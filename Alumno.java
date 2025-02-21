@@ -36,7 +36,11 @@ public class Alumno{
     }
 
 	public void actualizar(){
-		String notificacion = curso.getMensaje();
+
+        notificacion = "";
+        for (Curso curso : listaCursos){
+            notificacion = curso.getMensaje() + "\n";
+        }
 		verNotificacion();
         
 	}
@@ -44,10 +48,4 @@ public class Alumno{
     public void verNotificacion(){
         System.out.println(notificacion);
     }
-
-
-
-
-
-
 }

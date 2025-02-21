@@ -8,16 +8,19 @@ public class CursoJava implements Sujeto, Curso {
     private String mensaje;
     private int duracionMeses;
     private int dificultad;
+    private String modalidad;
+    private Mensajes msj;
 
     //Constructor
-    public CursoJava (String nombre, int dificultad){
+    public CursoJava (String nombre, int dificultad, int modalidad){
         this.nombre = nombre;
         this.mensaje= "";
         this.duracionMeses = 12;
         this.dificultad = dificultad;
         this.listaAlumnos = new ArrayList<>();
+        this.setModalidad(modalidad);
+        msj = new Mensajes();
     }
-
 
     //getter y setter
     public String getNombre(){
@@ -36,6 +39,9 @@ public class CursoJava implements Sujeto, Curso {
         return duracionMeses;
     }
 
+    public String getModalidad(){
+        return modalidad;
+    }
 
     public void setDificultad(int dificultad){
         this.dificultad = dificultad;
@@ -43,7 +49,7 @@ public class CursoJava implements Sujeto, Curso {
 
     public void setMensaje(String mensaje){
         this.mensaje = mensaje;
-    }
+    }   
 
     //metodos de la interfaz sujeto 
     public void registrar(Alumno alumno){
@@ -62,9 +68,22 @@ public class CursoJava implements Sujeto, Curso {
 		}
     }
 
-    @Override
-    public void modalidad (int numero){
-        
+    // @Override
+    public void setModalidad (int numero){
+        switch (numero){
+            case 1:
+                modalidad = "Teorico";
+                return;
+            case 2:
+                modalidad = "Practico";
+                return;
+            case 3:
+                modalidad = "Visual";
+                return;
+            default:
+                System.out.println("Elije una modalidad válida");
+                return;
+        }
     }
 
     public void cobrar (){

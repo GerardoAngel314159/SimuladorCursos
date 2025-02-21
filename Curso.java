@@ -1,5 +1,7 @@
 public interface Curso{
     public void cobrar();
-     
-    public void modalidad (int numero);
+    public void setModalidad (int numero);
+    public String getNombre();
+    public String getModalidad();
+    public String getMensaje();
 }

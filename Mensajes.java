@@ -14,12 +14,12 @@ public class Mensajes{
 
     public String faltaDeFondos (Alumno alumno, Curso curso){
         return ("Infortunadamente, " + alumno.getNombre() + " ha sido removido del curso "
-            curso.getNombre() + " por falta de fondos");
+            + curso.getNombre() + " por falta de fondos");
     }
     
     public String dineroRestante(Alumno alumno){
         return ("Gracias por su pago " + alumno.getNombre() + ". Su saldo restante es de: $"
-            alumno.getDinero());
+            + alumno.getDinero());
     }
 
     public String cambioModalidad(Curso curso){
