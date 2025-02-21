@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CursoJava implements Sujeto{
+public class CursoJava implements Sujeto, Curso{
     
     private List<Alumno> listaAlumnos;
     private String nombre;
