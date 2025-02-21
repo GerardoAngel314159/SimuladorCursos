@@ -6,12 +6,13 @@ public class Alumno{
     //Atributos
     private String nombre;
     private int dinero ;
-    private List<Cursos> listaCursos;
+    private List <Curso> listaCursos;
+    private String notificacion;
 
     //metodos 
 
     //constructor
-    public Alumno (String nombre, int dinero, List<Cursos> listaCursos){
+    public Alumno (String nombre, int dinero){
         this.nombre = nombre;
         this.dinero = dinero;
         this.listaCursos = new ArrayList<>();
@@ -26,8 +27,27 @@ public class Alumno{
         return dinero;
     }
 
+    public void setDinero(int dinero){
+        this.dinero = dinero;
+    }
+
     public void incribirCurso(Curso curso){
         listaCursos.add(curso);
     }
+
+	public void actualizar(){
+		String notificacion = curso.getMensaje();
+		verNotificacion();
+        
+	}
+
+    public void verNotificacion(){
+        System.out.println(notificacion);
+    }
+
+
+
+
+
 
 }

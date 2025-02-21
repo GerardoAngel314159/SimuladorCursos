@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CursoJava implements Sujeto, Curso{
+public class CursoJava implements Sujeto, Curso {
     
     private List<Alumno> listaAlumnos;
     private String nombre;
@@ -10,7 +10,15 @@ public class CursoJava implements Sujeto, Curso{
     private int dificultad;
 
     //Constructor
-    
+    public CursoJava (String nombre, int dificultad){
+        this.nombre = nombre;
+        this.mensaje= "";
+        this.duracionMeses = 12;
+        this.dificultad = dificultad;
+        this.listaAlumnos = new ArrayList<>();
+    }
+
+
     //getter y setter
     public String getNombre(){
         return nombre;
@@ -48,11 +56,35 @@ public class CursoJava implements Sujeto, Curso{
 
 	public void notificar(){
         if(listaAlumnos.size() > 0){
-
-			for(Alumno alumno : alumno){
+			for(Alumno alumno : listaAlumnos){
 				alumno.actualizar();
 			}
 		}
+    }
+
+    @Override
+    public void modalidad (int numero){
+        
+    }
+
+    public void cobrar (){
+        int dificultad = getDificultad();
+
+        if (dificultad == 1){
+            for(Alumno alumno : listaAlumnos){
+            alumno.setDinero(alumno.getDinero()-120);
+            }
+        }else{
+            if( dificultad == 2 ){
+                for(Alumno alumno : listaAlumnos){
+                alumno.setDinero(alumno.getDinero()-135);
+                }
+            }else{
+                for(Alumno alumno : listaAlumnos){
+                alumno.setDinero(alumno.getDinero()-180);
+                }
+            }
+        }
     }
 
 
