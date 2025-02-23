@@ -87,26 +87,6 @@ public class CursoEcuDif implements Sujeto, Curso {
         }
     }
 
-    // public void cobrar (){
-    //     int dificultad = getDificultad();
-
-    //     if (dificultad == 1){
-    //         for(Alumno alumno : listaAlumnos){
-    //         alumno.setDinero(alumno.getDinero()-120);
-    //         }
-    //     }else{
-    //         if( dificultad == 2 ){
-    //             for(Alumno alumno : listaAlumnos){
-    //             alumno.setDinero(alumno.getDinero()-135);
-    //             }
-    //         }else{
-    //             for(Alumno alumno : listaAlumnos){
-    //             alumno.setDinero(alumno.getDinero()-180);
-    //             }
-    //         }
-    //     }
-    // }
-
     private int getPrecio (){
         int precio = 0;
         if (this.dificultad == 1){
