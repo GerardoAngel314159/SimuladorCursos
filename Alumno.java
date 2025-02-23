@@ -83,7 +83,7 @@ public class Alumno{
      * Este metodo recorre la lista de los cursos e imprime sus notificaciones
      */
 	public void actualizar(){
-        notificacion = getNombre()+":";
+        notificacion = "notificaciones de "getNombre()+":";
         for (Curso curso : listaCursos){
             notificacion += curso.getNombre() +":"+  curso.getMensaje() + "\n";
 
