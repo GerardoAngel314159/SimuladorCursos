@@ -86,31 +86,35 @@ public class CursoJava implements Sujeto, Curso {
         }
     }
 
-    public void cobrar (){
-        int dificultad = getDificultad();
+    private int getPrecio() {
+        int precio = 0;
+        switch (this.dificultad) {
+            case 1:
+                precio = 100;
+                break;
+            case 2:
+                precio = 125;
+                break;
+            case 3:
+                precio = 150;
+                break;
+            default:
+                precio = 0; 
+                break;
+        }
+        return precio;
+    }
+    
 
-        if (dificultad == 1){
-            for(Alumno alumno : listaAlumnos){
-            alumno.setDinero(alumno.getDinero()-120);
-            }
-        }else{
-            if( dificultad == 2 ){
-                for(Alumno alumno : listaAlumnos){
-                alumno.setDinero(alumno.getDinero()-135);
-                }
-            }else{
-                for(Alumno alumno : listaAlumnos){
-                alumno.setDinero(alumno.getDinero()-180);
-                }
+    public void cobrar() {
+        for (Alumno alumno : listaAlumnos) {
+            if (this.getPrecio() > alumno.getDinero()) {
+                System.out.println(msj.faltaDeFondos(alumno, this));
+                remover(alumno);
+            } else {
+                alumno.setDinero(alumno.getDinero() - this.getPrecio());
+                System.out.println(msj.dineroRestante(alumno));
             }
         }
     }
-
-
-
-    
-
-
-
-
 }
