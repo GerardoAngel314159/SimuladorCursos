@@ -32,10 +32,21 @@ public interface Curso{
      */
     public String getMensaje();
 
+    /**
+     * Metodo que registrar a el alumno recibido en la lista de Alumnos del curso 
+     * @param alumno, recibe un alumno de tipo alumno 
+     */
     public void registrar(Alumno alumno);
 
+    /**
+     * Este metodo elimina al alumno recibido de la lista de alumnos del curso
+     * @param alumno, recibe un alumno de tipo alumno
+     */
     public void remover(Alumno alumno);
 
+    /**
+     * Este método notifica a los alumnos con el mensaje nuevo del curso imprimiendo en pantalla el mensaje
+     */
     public void notificar();
 
 }
