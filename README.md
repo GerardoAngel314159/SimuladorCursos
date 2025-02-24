@@ -16,4 +16,6 @@ Para la practica, para la implementacion del patrón de diseño de Observer se d
 En nuestra practica aplicamos el patron Strategy mediante la definicion de una interfaz comun (en este caso, la interfaz Curso) que especifica un conjunto de metodos que deben implementar todos los tipos de cursos. Esto nos permitio encapsular las distintas logicas de Simulacion de Cursos (como el calculo de costos, la forma de registrar y cobrar a los alumnos, etc.) en clases concretas, tales como CursoJava, CursoCanto y CursoEcuDif.
 
 
-La practica de compila con "javac *.java" y despues con "java SimuladorCursos"
+Para poder ejecutar el programa primero hay que dirigirse a la carpeta donde se encuentra, esto desde la terminal, posteriormente tiene que compilar todos los archivos, puede hacer esto con el comando "javac *.java", posteriormente tiene que ejecutar el archivo de SimuladorCursos.java, puede hacerlo con el comando "java SimuladorCursos.java". Esto le mostrara en terminal la ejecución del codigo.
+
+Versiones de Java que usamos 17.0.11 o 17.0.13
