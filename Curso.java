@@ -38,4 +38,5 @@ public interface Curso{
 
     public void notificar();
 
+    public void setMensaje(String mensaje);
 }
