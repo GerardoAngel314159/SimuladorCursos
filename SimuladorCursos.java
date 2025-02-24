@@ -33,9 +33,19 @@ public class SimuladorCursos{
         cursoJava1.registrar(maria);
         cursoEcuDif1.registrar(sara);
 
-        ciclo(12, 1, listaCursos, listaAlumnos);
-        
+        ciclo(2, 1, listaCursos, listaAlumnos);
+        cursoJava1.setModalidad(1);
+        System.out.println("\nEl curso " + cursoJava1.getNombre() + "ha cambiado a modalidad Practico");
+
+        ciclo(3, 3, listaCursos, listaAlumnos);
+
+        System.out.println("\n");
+        maria.desinscribirse(cursoJava1);
+        listaCursos.remove(0);
+
+        ciclo(3, 6, listaCursos, listaAlumnos);
         System.out.println("\n" + msj.salidaSimulador());
+
 
 
     }
@@ -43,16 +53,29 @@ public class SimuladorCursos{
     public static void ciclo(int meses, int mesPrimero, List<Curso> listaCursos, List<Alumno> alumnos) {
         for (int i = 0; i < meses; i++){
             System.out.println("\nBienvenidos al mes " + (i + mesPrimero));
+            reiniciarCurso(alumnos);
+
             for (Curso curso : listaCursos){
                 curso.setMensaje("Pasaste el mes " + (i+mesPrimero));
-                // System.out.println(curso.getMensaje());
-                // curso.notificar();
             }
 
-            for(Alumno alumno : alumnos){
+            for (Alumno alumno : alumnos){
                 alumno.actualizar();
+
+            }
+            
+            System.out.println("Pagos de cursos del mes " + (i+mesPrimero + 1));
+            for (Curso curso : listaCursos){
+                curso.cobrar();
             }
 
+
+        }
+    }
+
+    public static void  reiniciarCurso (List<Alumno> alumnos){
+        for (Alumno alumno : alumnos){
+            alumno.reiniciarNotificacion();        
         }
     }
 }

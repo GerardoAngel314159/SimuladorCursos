@@ -139,7 +139,11 @@ public class CursoJava implements Sujeto, Curso {
         }
 
         listaAlumnos.add(alumno);
+        alumno.setDinero(alumno.getDinero() - this.getPrecio());
+        alumno.incribirCurso(this);
+
         System.out.println(msj.saludo(alumno,this));
+        System.out.println(msj.dineroRestante(alumno, this));
     }
 
     /**
@@ -158,7 +162,8 @@ public class CursoJava implements Sujeto, Curso {
 	public void notificar(){
         if(listaAlumnos.size() > 0){
 			for(Alumno alumno : listaAlumnos){
-				alumno.actualizar();
+				// alumno.actualizar();
+                alumno.añadirNotificación(mensaje);
 			}
 		}
     }

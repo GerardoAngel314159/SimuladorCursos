@@ -45,6 +45,7 @@ public class Alumno implements Observador{
         this.nombre = nombre;
         this.dinero = dinero;
         this.listaCursos = new ArrayList<>();
+        notificacion = "";
     }
 
     /**
@@ -83,12 +84,12 @@ public class Alumno implements Observador{
      * Este metodo recorre la lista de los cursos e imprime sus notificaciones
      */
 	public void actualizar(){
-        notificacion = "notificaciones de " + getNombre()+":";
-        for (Curso curso : listaCursos){
+        notificacion = "notificaciones de " + getNombre()+":\n";
+        for (Curso curso : listaCursos){    
             notificacion += curso.getNombre() +":"+  curso.getMensaje() + "\n";
-
         }        
         verNotificacion();
+
 	}
 
     /**
@@ -103,10 +104,14 @@ public class Alumno implements Observador{
      * @param curso, recibe un curso de tipo Curso
      */
     public void desinscribirse (Curso curso){
-        if (listaCursos.size() ==0){
+        curso.remover(this);
+    }
 
-        }else{
-            listaCursos.add(curso);
-        }
+    public void añadirNotificación(String adition){
+        notificacion += "\n" + adition;
+    }
+
+    public void reiniciarNotificacion(){
+        this.notificacion = "";
     }
 }
