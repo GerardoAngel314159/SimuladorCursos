@@ -104,7 +104,12 @@ public class Alumno implements Observador{
      * @param curso, recibe un curso de tipo Curso
      */
     public void desinscribirse (Curso curso){
-        curso.remover(this);
+        if(listaCursos.size() >0){
+            listaCursos.remove(curso);
+            curso.remover(this);
+        }
+ 
+        return;
     }
 
     public void añadirNotificación(String adition){

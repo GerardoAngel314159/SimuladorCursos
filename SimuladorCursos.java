@@ -41,9 +41,18 @@ public class SimuladorCursos{
 
         System.out.println("\n");
         maria.desinscribirse(cursoJava1);
-        listaCursos.remove(0);
+        listaAlumnos.remove(maria);
 
         ciclo(3, 6, listaCursos, listaAlumnos);
+
+        Curso cursoJava2 = new CursoJava("Curso Java Intermedio", 2, 1);
+        System.out.println("\nMaria regreso a la escuela");
+        cursoJava2.registrar(maria);
+        listaAlumnos.add(maria);
+        listaCursos.add(cursoJava2);
+
+        ciclo(3, 9, listaCursos, listaAlumnos);
+        msj.graduacion(sara, cursoEcuDif1);
         System.out.println("\n" + msj.salidaSimulador());
 
 
@@ -56,7 +65,7 @@ public class SimuladorCursos{
             reiniciarCurso(alumnos);
 
             for (Curso curso : listaCursos){
-                curso.setMensaje("Pasaste el mes " + (i+mesPrimero));
+                curso.setMensaje("Pasaste al mes " + (i+mesPrimero));
             }
 
             for (Alumno alumno : alumnos){
