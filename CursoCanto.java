@@ -82,16 +82,17 @@ public class CursoCanto implements Sujeto, Curso {
         int costo = this.getPrecio();
 
         if (alumno.getDinero() < costo) {
-            this.mensaje = msj.faltaDeFondos(alumno, this);
+            System.out.println(msj.faltaDeFondos(alumno, this));
             return;
         }
 
         listaAlumnos.add(alumno);
-        this.mensaje = msj.saludo(alumno);
+        System.out.println(msj.saludo(alumno,this));
     }
 
 	public void remover(Alumno alumno){
         listaAlumnos.remove(alumno);
+        System.out.println(msj.despedida(alumno));
     }
 
 	public void notificar(){
@@ -127,7 +128,7 @@ public class CursoCanto implements Sujeto, Curso {
                 remover(alumno);
             } else {
                 alumno.setDinero(alumno.getDinero() - this.getPrecio());
-                System.out.println(msj.dineroRestante(alumno));
+                System.out.println(msj.dineroRestante(alumno, this));
             }
         }
     }

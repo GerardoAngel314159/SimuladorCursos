@@ -13,7 +13,7 @@ public class CursoEcuDif implements Sujeto, Curso {
 
     //Constructor
     public CursoEcuDif (String nombre, int dificultad, int modalidad){
-        if ((dificultad< 1) || dificultad >2) throw new ExceptionInInitializerError("dificultad debe ser establecida entre 1 y 3");
+        if ((dificultad< 1) || dificultad >3) throw new ExceptionInInitializerError("dificultad debe ser establecida entre 1 y 3");
         this.nombre = nombre;
         this.mensaje= "";
         this.duracionMeses = 12;
@@ -53,12 +53,22 @@ public class CursoEcuDif implements Sujeto, Curso {
     }   
 
     //metodos de la interfaz sujeto 
-    public void registrar(Alumno alumno){
+    public void registrar(Alumno alumno) {
+        int costo = this.getPrecio();
+
+        if (alumno.getDinero() < costo) {
+            System.out.println(msj.faltaDeFondos(alumno, this));
+            return;
+        }
+
         listaAlumnos.add(alumno);
+        System.out.println(msj.saludo(alumno,this));
     }
 
 	public void remover(Alumno alumno){
         listaAlumnos.remove(alumno);
+        System.out.println(msj.despedida(alumno));
+        
     }
 
 	public void notificar(){
@@ -108,7 +118,7 @@ public class CursoEcuDif implements Sujeto, Curso {
             }
             else {
                 alumno.setDinero(alumno.getDinero() - this.getPrecio());
-                System.out.println(msj.dineroRestante(alumno));
+                System.out.println(msj.dineroRestante(alumno,this));
             }
         }
     }

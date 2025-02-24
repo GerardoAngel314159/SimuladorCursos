@@ -31,4 +31,11 @@ public interface Curso{
      * @return un String con el mensaje que se va a dar 
      */
     public String getMensaje();
+
+    public void registrar(Alumno alumno);
+
+    public void remover(Alumno alumno);
+
+    public void notificar();
+
 }

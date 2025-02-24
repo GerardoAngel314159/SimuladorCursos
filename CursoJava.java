@@ -52,12 +52,21 @@ public class CursoJava implements Sujeto, Curso {
     }   
 
     //metodos de la interfaz sujeto 
-    public void registrar(Alumno alumno){
+    public void registrar(Alumno alumno) {
+        int costo = this.getPrecio();
+
+        if (alumno.getDinero() < costo) {
+            System.out.println(msj.faltaDeFondos(alumno, this));
+            return;
+        }
+
         listaAlumnos.add(alumno);
+        System.out.println(msj.saludo(alumno,this));
     }
 
 	public void remover(Alumno alumno){
         listaAlumnos.remove(alumno);
+        System.out.println(msj.despedida(alumno));
     }
 
 	public void notificar(){
@@ -112,8 +121,8 @@ public class CursoJava implements Sujeto, Curso {
                 System.out.println(msj.faltaDeFondos(alumno, this));
                 remover(alumno);
             } else {
-                alumno.setDinero(alumno.getDinero() - this.getPrecio());
-                System.out.println(msj.dineroRestante(alumno));
+                alumno.setDinero(alumno.getDinero() - this.getPrecio());    
+                System.out.println(msj.dineroRestante(alumno,this));
             }
         }
     }
